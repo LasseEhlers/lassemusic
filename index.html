@@ -13,14 +13,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#07090d;--bg2:#0b0f16;--panel:#10151f;--panel2:#161d29;--line:#23303f;--ink:#eef3fa;--dim:#8492a5;--gold:#ffd23f;--gold2:#e0a830;--cream:#f5e8be;--cyan:#2ee6d6;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+:root{--bg:#07090d;--bg2:#0b0f16;--panel:#10151f;--panel2:#161d29;--line:#23303f;--ink:#eef3fa;--dim:#8492a5;--gold:#e0a830;--gold2:#e0a830;--cream:#f5e8be;--cyan:#2ee6d6;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;background-color:#07090d;background-image:linear-gradient(#0c1018 1px,transparent 1px),linear-gradient(90deg,#0c1018 1px,transparent 1px);background-size:32px 32px;color:var(--ink);font-family:var(--mono);line-height:1.5}
 .top{height:6px;background:var(--gold)}
 header{display:flex;align-items:center;gap:.8rem;padding:1rem 1.2rem;border-bottom:1px solid var(--line);background:rgba(7,9,13,.9);position:sticky;top:0;backdrop-filter:blur(6px)}
 .l{width:34px;height:34px;border-radius:5px;background:var(--gold);color:var(--bg);font-weight:800;display:grid;place-items:center;font-size:24px}
 .wm{font-weight:800;letter-spacing:.02em;font-size:1.05rem}.wm b{color:var(--gold2);font-weight:800}.wm span{color:var(--cream)}
-.tag{color:var(--gold);font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;margin-left:auto}
+.tag{color:var(--gold);font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;margin-left:1.4rem}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:inherit}.logo{width:34px;height:34px;display:block}.ch{margin-left:auto;display:flex;gap:1.2rem}.ch a{color:var(--gold);text-decoration:none;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid transparent;padding-bottom:2px}.ch a:hover{color:var(--ink);border-bottom-color:var(--gold)}
 main{max-width:860px;margin:0 auto;padding:2.5rem 1.2rem 4rem}
 h1{font-size:clamp(2.6rem,9vw,4.6rem);line-height:1;margin:0;font-weight:800;letter-spacing:-.01em;text-shadow:0 0 34px rgba(255,210,63,.16)}
 h1 span{color:var(--cream)}h1 b{color:var(--gold2);font-weight:800}
@@ -39,7 +40,7 @@ footer{border-top:1px solid var(--line);padding:1.5rem 1.2rem;color:var(--dim);f
 </head>
 <body>
 <div class="top"></div>
-<header><div class="l">L</div><div class="wm"><span>LASSE</span><b>MUSIC</b></div><div class="tag">Free World Music</div></header>
+<header><a class="brand" href="/"><img class="logo" src="img/logo.png" alt="Lasse Music" width="34" height="34"><div class="wm"><span>LASSE</span><b>MUSIC</b></div></a><nav class="ch"><a href="https://www.youtube.com/@lassemusiclive" target="_blank" rel="noopener">YouTube</a><a href="https://x.com/LasseMusicLive" target="_blank" rel="noopener">X</a></nav><div class="tag">Free World Music</div></header>
 <main>
 <h1><span>LASSE</span><b>MUSIC</b></h1>
 <p class="sub">Free World Music</p>
@@ -78,13 +79,15 @@ footer{border-top:1px solid var(--line);padding:1.5rem 1.2rem;color:var(--dim);f
   </div>
 </article>
 
-<div class="note"><b>Where the music is going.</b> These three songs are free here for everyone. LasseCash is moving to the MAGI blockchain — immutable, no admin keys, 51,000,000 hard cap — and the full catalogue, new songs and the originals as NFTs will live there. Busking clips on <a href="https://www.youtube.com/@lassemusiclive" style="color:var(--gold)">YouTube</a>.</div>
+<div class="note"><b>Where the music is going.</b> These three songs are free here for everyone. LasseCash now runs on the MAGI blockchain, and the full catalogue, new songs and the originals as NFTs will live there. Busking clips on <a href="https://www.youtube.com/@lassemusiclive" style="color:var(--gold)">YouTube</a> and <a href="https://x.com/LasseMusicLive" style="color:var(--gold)">X</a>.</div>
 </main>
 <footer>
   <a href="https://www.lassecash.com">lassecash.com</a>
-  <a href="https://lassecash.pages.dev/about">LasseCash on MAGI</a>
+  <a href="https://lassecash.com/about">LasseCash on MAGI</a>
   <a href="https://www.youtube.com/@lassemusiclive">YouTube · Lasse Music</a>
   <a href="https://www.youtube.com/@LasseCashNews">YouTube · Crypto World News</a>
+  <a href="https://x.com/LasseMusicLive">X · Lasse Music</a>
+  <a href="https://x.com/LasseCashNews">X · Crypto World News</a>
   <a href="https://hive.blog/@lasseehlers">Hive · @lasseehlers</a>
   <span>© Lasse Ehlers</span>
 </footer>
