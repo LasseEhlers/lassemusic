@@ -27,8 +27,9 @@ h1{font-size:clamp(2.6rem,9vw,4.6rem);line-height:1;margin:0;font-weight:800;let
 h1 span{color:var(--cream)}h1 b{color:var(--gold2);font-weight:800}
 .sub{color:var(--gold);letter-spacing:.32em;text-transform:uppercase;font-size:.9rem;margin:.6rem 0 0}
 .lead{color:var(--dim);margin:1.2rem 0 2.6rem;max-width:560px;font-size:.94rem}
-.song{display:grid;grid-template-columns:120px 1fr;gap:1.1rem;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1.1rem;margin-bottom:1.1rem}
-.song img{width:120px;height:120px;border-radius:4px;object-fit:cover;border:1px solid var(--line)}
+.song{display:grid;grid-template-columns:300px 1fr;gap:1.4rem;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1.1rem;margin-bottom:1.1rem}
+.song img{width:300px;height:300px;border-radius:4px;object-fit:cover;border:1px solid var(--line);cursor:zoom-in;transition:transform .15s}.song img:hover{transform:scale(1.02)}
+#big{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;place-items:center;z-index:9;cursor:zoom-out;padding:16px}#big.on{display:grid}#big img{max-width:min(92vw,1200px);max-height:92vh;border-radius:4px}
 .song h2{margin:0 0 .15rem;font-size:1.25rem;font-weight:800}.song .meta{color:var(--dim);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase}
 .song p{color:var(--dim);font-size:.86rem;margin:.6rem 0 .8rem}
 audio{width:100%;filter:invert(1) hue-rotate(180deg) saturate(.6);border-radius:4px}
@@ -36,7 +37,7 @@ audio{width:100%;filter:invert(1) hue-rotate(180deg) saturate(.6);border-radius:
 .note{border-left:3px solid var(--gold);background:var(--panel2);padding:.9rem 1rem;margin:2.4rem 0;color:var(--dim);font-size:.88rem}.note b{color:var(--ink)}
 .credit{color:var(--dim);font-size:.78rem;margin:.4rem 0 0}
 footer{border-top:1px solid var(--line);padding:1.5rem 1.2rem;color:var(--dim);font-size:.78rem;display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:center}footer a{color:var(--dim);text-decoration:none}footer a:hover{color:var(--gold)}
-@media(max-width:520px){.song{grid-template-columns:1fr}.song img{width:100%;height:auto;aspect-ratio:1}.tag{display:none}}
+@media(max-width:720px){.song{grid-template-columns:1fr}.song img{width:100%;height:auto;aspect-ratio:1}.tag{display:none}}
 </style>
 </head>
 <body>
@@ -48,7 +49,7 @@ footer{border-top:1px solid var(--line);padding:1.5rem 1.2rem;color:var(--dim);f
 <p class="lead">Original songs by Lasse Ehlers — written on the streets of Copenhagen. Listen to the full songs here, free. Building the voice of the free world, one song at a time.</p>
 
 <article class="song">
-  <img src="img/billy-blue.jpg" alt="Billy Blue cover">
+  <img src="img/billy-blue.jpg?v=2" alt="Billy Blue cover">
   <div>
     <h2>Billy Blue</h2>
     <div class="meta">2026 · 6:28 · original · written 7 Aug 2022</div>
@@ -59,7 +60,7 @@ footer{border-top:1px solid var(--line);padding:1.5rem 1.2rem;color:var(--dim);f
 </article>
 
 <article class="song">
-  <img src="img/wild-love-child.jpg" alt="Wild Love Child cover">
+  <img src="img/wild-love-child.jpg?v=2" alt="Wild Love Child cover">
   <div>
     <h2>Wild Love Child</h2>
     <div class="meta">2026 · 3:43 · original · written 1 Mar 2023</div>
@@ -69,7 +70,7 @@ footer{border-top:1px solid var(--line);padding:1.5rem 1.2rem;color:var(--dim);f
 </article>
 
 <article class="song">
-  <img src="img/now-the-war-is-over.jpg" alt="Now the War Is Over cover">
+  <img src="img/now-the-war-is-over.jpg?v=2" alt="Now the War Is Over cover">
   <div>
     <h2>Now the War Is Over</h2>
     <div class="meta">2025 · 4:19 · original · finished 7 Jul 2025</div>
@@ -109,6 +110,11 @@ function setSession(i){
   navigator.mediaSession.setActionHandler("nexttrack",()=>{players[i].pause();playAt((i+1)%players.length)});
   navigator.mediaSession.setActionHandler("previoustrack",()=>{players[i].pause();playAt((i-1+players.length)%players.length)});
 }
+// Tap a cover to see it large; tap anywhere or press Esc to close.
+const big=document.createElement("div");big.id="big";big.innerHTML="<img alt=''>";document.body.append(big);
+document.querySelectorAll(".song img").forEach(im=>im.addEventListener("click",()=>{big.firstChild.src=im.src;big.firstChild.alt=im.alt;big.classList.add("on")}));
+big.addEventListener("click",()=>big.classList.remove("on"));
+addEventListener("keydown",e=>{if(e.key==="Escape")big.classList.remove("on")});
 </script>
 </body>
 </html>
