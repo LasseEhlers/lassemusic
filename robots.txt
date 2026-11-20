@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lassemusic.com/sitemap.xml
